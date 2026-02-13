@@ -1,0 +1,37 @@
+name: Doc Update Agent
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  doc-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # push new branch
+      pull-requests: write # create PR
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # need HEAD and HEAD~1 for diff
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          cd doc-update-agent
+          pip install -r requirement.txt
+
+      - name: Run doc-update agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN:   ${{ secrets.GIT_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          cd doc-update-agent
+          python -m src.main
