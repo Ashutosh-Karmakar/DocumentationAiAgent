@@ -12,7 +12,7 @@ from pathlib import Path
 
 load_dotenv()
 
-gemini_api_key = os.getenv("GEMINI_API_KEY")
+gemini_api_key = os.getenv("GEMINI_API_TOKEN")
 gemini_model = "gemini-2.5-flash"
 
 repo_root = Path(__file__).resolve().parent.parent.parent
