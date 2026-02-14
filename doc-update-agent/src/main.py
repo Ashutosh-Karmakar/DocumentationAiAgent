@@ -69,18 +69,18 @@ model = ChatGoogleGenerativeAI(model=gemini_model, api_key=gemini_api_key)
 
 chain = prompt | model | parser
 
-result = chain.invoke({
-    "files": files,
-    "files_summary": files_summary,
-})
+# result = chain.invoke({
+#     "files": files,
+#     "files_summary": files_summary,
+# })
 
-# print(result)
-# Mock result for testing without API calls
-# class MockResult:
-#     docs_update_required = True
-#     new_readme_content = "# Updated README\n\nThis is a mocked README update."
+print(result)
+Mock result for testing without API calls
+class MockResult:
+    docs_update_required = True
+    new_readme_content = "# Updated README\n\nThis is a mocked README update."
 
-# result = MockResult()
+result = MockResult()
 
 readme_path = repo_root / "README.md"
 
