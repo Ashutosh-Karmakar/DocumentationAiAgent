@@ -8,6 +8,7 @@ from langchain_classic.agents import create_tool_calling_agent, AgentExecutor
 import os 
 from git import Repo
 from pathlib import Path
+import requests
 
 gemini_api_key = os.getenv("GEMINI_API_TOKEN")
 gemini_model = "gemini-2.5-flash"
