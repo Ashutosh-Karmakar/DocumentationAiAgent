@@ -18,7 +18,14 @@ app.get('/api/info', (req, res) => {
     name: 'Documentation AI Agent',
     version: '1.0.0',
     description: 'API service for documentation AI agent',
-    endpoints: ['/api/health', '/api/info'],
+    endpoints: ['/api/health', '/api/info', '/api/echo'],
+  });
+});
+
+app.post('/api/echo', (req, res) => {
+  res.json({
+    echoed: req.body,
+    receivedAt: new Date().toISOString(),
   });
 });
 
