@@ -9,9 +9,6 @@ import os
 from git import Repo
 from pathlib import Path
 
-
-load_dotenv()
-
 gemini_api_key = os.getenv("GEMINI_API_TOKEN")
 gemini_model = "gemini-2.5-flash"
 
