@@ -77,7 +77,7 @@ chain = prompt | model | parser
 # print(result)
 class MockResult:
     docs_update_required = True
-    new_readme_content = "# Updated README\n\nThis is a mocked README update."
+    new_readme_content = "# Updated README\n\nThis is a mocked README update for testing purposes."
 
 result = MockResult()
 
