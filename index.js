@@ -13,6 +13,15 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+app.get('/api/info', (req, res) => {
+  res.json({
+    name: 'Documentation AI Agent',
+    version: '1.0.0',
+    description: 'API service for documentation AI agent',
+    endpoints: ['/api/health', '/api/info'],
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
