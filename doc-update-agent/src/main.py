@@ -100,9 +100,15 @@ else:
     readme_path.write_text(result.new_readme_content, encoding="utf-8")
     repo.index.add(["README.md"])
     # Git config required for commit in CI
-    if not repo.config_reader().get_value("user", "name", default=None):
+    try:
+        name = repo.config_reader().get_value("user", "name", default=None)
+        email = repo.config_reader().get_value("user", "email", default=None)
+    except Exception:
+        name = None
+        email = None
+    if not name:
         repo.config_writer().set_value("user", "name", "github-actions[bot]").release()
-    if not repo.config_reader().get_value("user", "email", default=None):
+    if not email:
         repo.config_writer().set_value("user", "email", "github-actions[bot]@users.noreply.github.com").release()
     repo.index.commit("docs: auto-update README from merge")
     print(f"Committed README on branch {branch_name}")
