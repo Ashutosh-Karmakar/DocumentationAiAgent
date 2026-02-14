@@ -74,8 +74,7 @@ chain = prompt | model | parser
 #     "files_summary": files_summary,
 # })
 
-print(result)
-Mock result for testing without API calls
+# print(result)
 class MockResult:
     docs_update_required = True
     new_readme_content = "# Updated README\n\nThis is a mocked README update."
