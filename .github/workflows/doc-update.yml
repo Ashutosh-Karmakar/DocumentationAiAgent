@@ -3,6 +3,7 @@ name: Doc Update Agent
 on:
   push:
     branches: [main]
+  workflow_dispatch: 
 
 jobs:
   doc-update:
