@@ -1,8 +1,0 @@
-langchain
-langchain_classic
-langchain-community
-langchain-google-genai
-python-dotenv
-pydantic
-GitPython
-requests
